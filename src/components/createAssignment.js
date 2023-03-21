@@ -24,6 +24,7 @@ class createAssignment extends Component {
     };
   }
 
+ // creating the handle    
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -34,6 +35,7 @@ class createAssignment extends Component {
     fetch(`${SERVER_URL}/assignment/add/${name}/${dueDate}/${courseId}`, {
         method: 'POST',
       })
+      // catching the course input error     
       .then(res => {
         if (res.ok) {
         toast.success("Assignment Successfully Added!", {
@@ -79,6 +81,7 @@ const buttonStyle = {
 };
 
 return (
+  // creating the form and stylizing 
   <div style={containerStyle}>
     <h2>Create New Assignment</h2>
     <form onSubmit={this.handleSubmit} style={formStyle}>
